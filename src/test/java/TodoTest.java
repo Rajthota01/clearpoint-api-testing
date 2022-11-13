@@ -10,12 +10,14 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
+/**
+ * API Tests for TODO endpoints.
+ */
 public class TodoTest {
 
   static {
     RestAssured.baseURI = "http://localhost:3002/api/todoItems";
   }
-
 
   @Test
   public void testTodosValidResponse() {
@@ -74,7 +76,7 @@ public class TodoTest {
   }
 
   @Test
-  public void testAddTodoWithDupilcatedData() {
+  public void testAddTodoWithConflictData() {
 
     RequestSpecification httpRequest = RestAssured.given()
         .header("Content-type", "application/json");
